@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports</title>
+    <link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+
+    <nav>
+        <a href="admin.html">Edit Products</a>
+        <a href="reports.html">Report Generation</a>
+        <button id="logout-btn">Logout</button>
+    </nav>
+
+    <div class="container">
+        <h1>Admin Reports</h1>
+
+        <!-- Report Sections Container (Horizontal Layout) -->
+        <div class="report-container">
+            
+            <!-- 📊 Customer Reports -->
+            <div class="report-section">
+                <h2>Customer Reports</h2>
+                <label>From: <input type="date" id="customer-start"></label>
+                <label>To: <input type="date" id="customer-end"></label>
+                <button onclick="generateCustomerReport()">Generate Report</button>
+                <div id="customer-report"></div>
+
+                <!-- ✅ Customer Report Chart -->
+                <canvas id="customerChart"></canvas>
+            </div>
+
+            <!-- 📊 Inventory Reports -->
+            <div class="report-section">
+                <h2>Inventory Reports</h2>
+                <button onclick="generateInventoryReport()">View Inventory</button>
+                <div id="inventory-report"></div>
+
+                <!-- ✅ Inventory Report Chart -->
+                <canvas id="inventoryChart"></canvas>
+            </div>
+
+            <!-- 📊 Sales Reports -->
+            <div class="report-section">
+                <h2>Sales Reports</h2>
+                <label>From: <input type="date" id="sales-start"></label>
+                <label>To: <input type="date" id="sales-end"></label>
+                <button onclick="generateSalesReport()">Generate Report</button>
+                <div id="sales-report"></div>
+
+                <!-- ✅ Sales Report Chart -->
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/reports.js" type="module"></script>
+
+</body>
+</html>

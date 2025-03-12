@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deyga Store - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base href="/">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ecd3df;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(12, 12, 12, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8e5369;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #0b0b0b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #933260;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #6b3e5d 0%, #6b3e5d 100%);
+            color: rgb(8, 7, 7);
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(21, 21, 21, 0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ddded4;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #ecf0f1;
+        }
+
+        .collection-label {
+            background: white;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ced0c2;
+            color: #7d214c;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #b3b5ab;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #b4b7a5;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(159, 24, 96, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .feature-text {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #822750;
+            font-size: 1.1rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 40px 20px;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px 15px;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #8e5369;
+        }
+
+        .price-filter input {
+            padding: 10px 15px;
+            width: 120px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .price-filter input:focus {
+            outline: none;
+            border-color: #8e5369;
+        }
+
+        .stock-filter select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .stock-filter select:focus {
+            outline: none;
+            border-color: #8e5369;
+        }
+
+        /* Products Section */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            max-width: 300px; /* Match the feature images for consistency */
+            height: auto; /* Remove fixed height */
+            overflow: hidden;
+            padding: 10px; /* Add padding to give space around the image */
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto; /* Allow natural scaling */
+            object-fit: contain; /* Ensure the full image is visible */
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .stock-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .badge-new { background: #ff6f61; color: white; }
+        .badge-bestseller { background: #ffd700; color: #333; }
+        .badge-viral { background: #ff3d9e; color: white; }
+        .badge-legacy { background: #4caf50; color: white; }
+        .badge-limited { background: #ff9800; color: white; }
+        .badge-out-of-stock { background: #f44336; color: white; }
+
+        .splash-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+
+        .add-to-cart {
+            position: relative; /* Change to relative to stack below the image */
+            margin: 10px 0; /* Add margin for spacing */
+            background: #8e5369;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #933260;
+        }
+
+        .add-to-cart:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .rating-star {
+            color: #ff9800;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+            width: 100%; /* Ensure it takes full width */
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            color: #822750;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #822750;
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .savings {
+            color: #4caf50;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #951b64;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #630e30;
+            margin: 15px auto;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, #911848 0%, #7b0e41 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: #8c095e;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #971668;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #e6d4da;
+            color: #0e0e0e;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #141213;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #060404;
+            margin-top: 10px;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #0f1010;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #0e0d0d;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(2, 2, 2, 0.1);
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row;
+                text-align: left;
+                padding: 80px 20px;
+                justify-content: space-between;
+            }
+
+            .hero-image {
+                margin-bottom: 0;
+                margin-left: 40px;
+            }
+
+            .hero-content {
+                padding: 0;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">DEYGA</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Shop</a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="login.html" id="login-link"><i class="fas fa-user"></i> Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content fade-in">
+            <h1>Natural & Organic Skincare</h1>
+            <p>Discover our range of handcrafted, eco-friendly products made with pure ingredients to nourish your skin and respect the planet.</p>
+            <div class="collection-label">Deyga Product Collection</div>
+            <a href="#products" class="btn">Explore Collection</a>
+        </div>
+        <div class="hero-image fade-in">
+            <img src="/images/skin.webp" alt="Deyga Product Collection">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature fade-in">
+            <img src="/images/offer1.webp" alt="Offer 1">
+            <div class="feature-text">Special Discounts on Skincare</div>
+        </div>
+        <div class="feature fade-in">
+            <img src="/images/offer2.webp" alt="Offer 2">
+            <div class="feature-text">100% Organic Ingredients</div>
+        </div>
+        <div class="feature fade-in">
+            <img src="/images/offer3.webp" alt="Offer 3">
+            <div class="feature-text">Fast Delivery Available</div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <h2 class="section-title">Our Products</h2>
+        <div class="filter-container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+            </div>
+            <div class="price-filter">
+                <input type="number" id="min-price" placeholder="Min Price" min="0">
+                <input type="number" id="max-price" placeholder="Max Price" min="0">
+            </div>
+            <div class="stock-filter">
+                <select id="stock-filter">
+                    <option value="all">All Products</option>
+                    <option value="inStock">In Stock Only</option>
+                    <option value="outOfStock">Out of Stock Only</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-container">
+        <!-- Products will be dynamically loaded here by products.js -->
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Join Our Community</h2>
+            <p>Subscribe to our newsletter and get 10% off your first purchase, plus exclusive offers and skincare tips.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Deyga</h3>
+                <p>We provide the finest natural and organic skincare products with eco-friendly ingredients, handcrafted to perfection for your skin's health and wellbeing.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> support@deyga.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Deyga Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js" type="module" defer></script>
+    <script src="js/products.js" type="module" defer></script>
+    <script>
+        // Simple Animation on Scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElems.forEach(elem => {
+                    const elemTop = elem.getBoundingClientRect().top;
+                    const elemBottom = elem.getBoundingClientRect().bottom;
+                    const isVisible = (elemTop < window.innerHeight) && (elemBottom > 0);
+                    
+                    if (isVisible) {
+                        elem.style.opacity = 1;
+                        elem.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial state for fade elements
+            fadeElems.forEach(elem => {
+                elem.style.opacity = 0;
+                elem.style.transform = 'translateY(20px)';
+                elem.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+            });
+            
+            // Check fade on load
+            checkFade();
+            
+            // Check fade on scroll
+            window.addEventListener('scroll', checkFade);
+        });
+    </script>
+</body>
+</html>

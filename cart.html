@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Deyga Store</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><h2>DEYGA</h2></a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html" class="active">Cart</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="cart-container">
+            <h2>Your Cart</h2>
+            <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
+            <div id="cart-items-container"></div>
+            <div class="cart-footer">
+                <p id="subtotal">Subtotal: ₹0.00</p>
+                <button class="checkout-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2025 Deyga Store | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("preloader").style.display = "none";
+        });
+    </script>
+    <script type="module" src="js/auth.js" defer></script>
+    <script type="module" src="js/cart.js" defer></script>
+</body>
+</html>

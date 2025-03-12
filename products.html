@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deyga Store - Natural Beauty Products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <h2>DEYGA</h2> <!-- Placeholder logo text -->
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <div id="user-section">
+                    <a href="login.html" id="login-link">Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1>Our Products</h1>
+            <p>Natural, chemical-free ingredients for healthy skin</p>
+        </div>
+
+        <div class="filter-container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products...">
+            </div>
+            <div class="price-filter">
+                <input type="number" id="min-price" placeholder="Min Price" min="0">
+                <input type="number" id="max-price" placeholder="Max Price" min="0">
+            </div>
+            <div class="stock-filter">
+                <select id="stock-filter">
+                    <option value="all">All Products</option>
+                    <option value="inStock">In Stock Only</option>
+                    <option value="outOfStock">Out of Stock Only</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-container" id="product-list">
+            <!-- Products will be dynamically loaded here from JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2025 Deyga Store | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js" type="module" defer></script>
+    <script type="module" src="js/products.js"></script>
+</body>
+</html>

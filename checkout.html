@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Deyga Store</title>
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" aria-live="polite">
+        <div class="loader" role="status">Loading...</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Checkout 🛍️</h1>
+        <nav aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-container" role="main">
+        <section class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="user-section" class="user-info">
+                <p><strong>Email:</strong> <span id="customer-email"></span></p>
+                <p><strong>Date:</strong> <span id="order-date"></span></p>
+            </div>
+
+            <h3>Items</h3>
+            <ul id="order-items" class="order-items-list"></ul>
+
+            <p class="total-amount"><strong>Total Amount:</strong> ₹<span id="total-amount">0.00</span></p>
+
+            <section id="credit-section" class="credit-section">
+                <p><strong>Your Credits:</strong> <span id="user-credits">0</span></p>
+                <label class="credits-label">
+                    <input type="checkbox" id="use-credits" name="use-credits"> Use Credits
+                </label>
+                <p class="final-amount"><strong>Final Amount:</strong> ₹<span id="final-amount">0.00</span></p>
+            </section>
+
+            <div class="payment-section">
+                <label for="payment-method">Payment Type:</label>
+                <select id="payment-method" name="payment-method" aria-label="Select payment method">
+                    <option value="cash">Cash on Delivery</option>
+                    <option value="card">Card</option>
+                    <option value="upi">UPI</option>
+                </select>
+            </div>
+
+            <button id="checkout-btn" class="confirm-button">Confirm Order</button>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module" src="js/auth.js" defer></script>
+    <script type="module" src="js/checkout.js" defer></script>
+    <script>
+        // Preloader removal on load
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById("preloader");
+            if (preloader) {
+                preloader.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

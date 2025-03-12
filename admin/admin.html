@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Deyga Store</title>
+    <link rel="stylesheet" href="../css/admin.css"> <!-- Adjusted path -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><h1>DEYGA</h1></a> <!-- Adjusted link -->
+            </div>
+            <nav class="nav-links">
+                <a href="admin.html" class="active">Add Products</a>
+                <a href="#edit-products">Edit Products</a>
+                <a href="reports.html">Report Generation</a>
+                <a href="#" id="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <section id="add-product" class="admin-section">
+            <h2>Add New Product</h2>
+            <form id="add-product-form" class="admin-form">
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category" placeholder="Enter category" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Enter product description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="img_url">Image URL</label>
+                    <input type="url" id="img_url" name="img_url" placeholder="Enter image URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter product name" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price (₹)</label>
+                    <input type="number" id="price" name="price" min="0" step="0.01" placeholder="Enter price" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock Quantity</label>
+                    <input type="number" id="stock" name="stock" min="0" placeholder="Enter stock quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock_status">Visible</label>
+                    <select id="stock_status" name="stock_status">
+                        <option value="visible">Yes</option>
+                        <option value="hidden">No</option>
+                    </select>
+                </div>
+                <button type="submit" class="admin-btn">Add Product</button>
+            </form>
+        </section>
+
+        <section id="edit-products" class="admin-section">
+            <h2>Edit Products</h2>
+            <div id="product-list" class="product-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2025 Deyga Store | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("preloader").style.display = "none";
+        });
+    </script>
+    <script type="module" src="../js/auth.js" defer></script> <!-- Adjusted path -->
+    <script type="module" src="../js/admin.js" defer></script> <!-- Adjusted path -->
+</body>
+</html>
